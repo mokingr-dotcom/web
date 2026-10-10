@@ -6,10 +6,12 @@ export default function Reveal({
   children,
   delay = 0,
   className = "",
+  wipe = false,
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
+  wipe?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -31,8 +33,8 @@ export default function Reveal({
     return () => io.disconnect();
   }, []);
   return (
-    <div ref={ref} className={className} style={{ ["--d" as string]: `${delay}ms` }}>
-      {children}
+    <div ref={ref} className={`${className}${wipe ? " has-wipe" : ""}`} style={{ ["--d" as string]: `${delay}ms` }}>
+      {wipe ? <div className="wipe-inner">{children}</div> : children}
     </div>
   );
 }

@@ -1,15 +1,15 @@
 import Link from "next/link";
 import { site, zones, rooms, playSpots, diningSpots, events } from "@/lib/data";
-import SpotGrid from "@/components/SpotGrid";
 import SectionHead from "@/components/SectionHead";
 import Placeholder from "@/components/Placeholder";
 import Reveal from "@/components/Reveal";
-import HScroll from "@/components/HScroll";
+import IndexList from "@/components/IndexList";
 import ParallaxBg from "@/components/ParallaxBg";
 import { findImage } from "@/lib/images";
 
 export default function Home() {
   const heroImg = findImage("hero");
+  const [fish, cafe, ...restDining] = diningSpots;
   return (
     <>
       <section className={`hero${heroImg ? " has-photo" : ""}`}>
@@ -19,10 +19,7 @@ export default function Home() {
             <div className="hero-shade" />
           </>
         ) : (
-          <>
-            <div className="hero-sky" />
-            <div className="hero-sun" />
-          </>
+          <div className="hero-sky" />
         )}
         <div className="container hero-in">
           <p className="hero-kicker">北京 · 通州 · 大运河畔马头村</p>
@@ -66,54 +63,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container section">
-        <div className="split">
-          <Reveal className="split-media">
-            <div className="shape-arch">
-              <Placeholder hue={30} label="运河徽派庭院" slot="room-huipai-courtyard" className="ratio-34" />
-            </div>
-            <span className="split-badge">马头墙<br />青砖黛瓦</span>
-          </Reveal>
-          <Reveal className="split-body" delay={140}>
-            <p className="eyebrow">贰 · 住</p>
-            <h2>枕着运河，住进徽派庭院</h2>
-            <p className="muted">保留经典马头墙与青砖黛瓦，内部是现代舒适的居住体验。推窗即景，家庭出游、朋友聚会都有一个温馨的家。</p>
-            <ul className="room-list">
-              {rooms.map((r) => (
-                <li key={r.slug}>
-                  <Link href={`/rooms/${r.slug}`}>
-                    <span className="thumb">
-                      <Placeholder hue={r.hue} label={r.name} slot={`room-${r.slug}`} />
-                    </span>
-                    <span className="room-txt"><strong>{r.name}</strong><em>{r.summary}</em></span>
-                    <span className="arrow">→</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <Link href="/rooms" className="more">全部房型 →</Link>
-          </Reveal>
-        </div>
+      <section className="stay">
+        <Reveal className="stay-img" wipe>
+          <Placeholder label="运河徽派庭院" slot="room-huipai-courtyard" className="cover" />
+        </Reveal>
+        <Reveal className="stay-body" delay={200}>
+          <p className="eyebrow">贰 · 住</p>
+          <h2>枕着运河，<br />住进徽派庭院</h2>
+          <p className="lead-sm">保留经典马头墙与青砖黛瓦，内部是现代舒适的居住体验。推窗即景，家庭出游、朋友聚会，都有一个温馨的家。</p>
+          <ul className="room-rows">
+            {rooms.map((r, i) => (
+              <li key={r.slug}>
+                <Link href={`/rooms/${r.slug}`}>
+                  <span className="rr-no">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="rr-txt"><strong>{r.name}</strong><em>{r.summary}</em></span>
+                  <span className="arrow">→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link href="/rooms" className="more">全部房型 →</Link>
+        </Reveal>
       </section>
 
-      <section className="paper-alt">
-        <div className="container section">
-          <Reveal>
-            <SectionHead no="叁" title="玩" sub="从孩子的萌宠乐园，到大人的森林与星空。" href="/play" more="全部项目" />
-          </Reveal>
-          <HScroll>
-            {playSpots.map((s, i) => (
-              <article key={s.slug} className="arch-card">
-                <div className="shape-arch">
-                  <Placeholder hue={s.hue} label={s.title} slot={`spot-${s.slug}`} className="ratio-34" />
-                </div>
-                <p className="eyebrow">{String(i + 1).padStart(2, "0")} · {s.tag}</p>
-                <h3>{s.title}</h3>
-                <p className="muted">{s.desc}</p>
-              </article>
-            ))}
-          </HScroll>
-        </div>
+      <section className="container section">
+        <Reveal>
+          <SectionHead no="叁" title="玩" sub="从孩子的萌宠乐园，到大人的森林与星空。" href="/play" more="全部项目" />
+        </Reveal>
+        <IndexList spots={playSpots.slice(0, 6)} />
       </section>
 
       <section className="night">
@@ -132,7 +109,17 @@ export default function Home() {
         <Reveal>
           <SectionHead no="伍" title="吃 · 在码头" sub="码头鱼馆、Sharklāka 咖啡厅、“渡”牌啤酒。" href="/dining" more="餐饮详情" />
         </Reveal>
-        <SpotGrid spots={diningSpots.slice(0, 3)} />
+        <div className="edit">
+          <Reveal className="edit-a" wipe><div className="frame"><Placeholder label={fish.title} slot={`spot-${fish.slug}`} className="cover" /></div></Reveal>
+          <Reveal className="edit-at" delay={150}>
+            <p className="eyebrow">01</p><h3>{fish.title}</h3><p className="muted">{fish.desc}</p>
+          </Reveal>
+          <Reveal className="edit-bt" delay={100}>
+            <p className="eyebrow">02</p><h3>{cafe.title}</h3><p className="muted">{cafe.desc}</p>
+          </Reveal>
+          <Reveal className="edit-b" wipe><div className="frame"><Placeholder label={cafe.title} slot={`spot-${cafe.slug}`} className="cover" /></div></Reveal>
+        </div>
+        <IndexList spots={restDining} />
       </section>
 
       <section className="paper-alt">
