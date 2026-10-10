@@ -76,8 +76,8 @@ export type Spot = {
   slug: string;
   title: string;
   desc: string;
-  tag: "游玩" | "餐饮" | "体验" | "夜游";
-  hue: number;
+  tag: "游玩" | "餐饮" | "体验" | "夜游" | "团建";
+  hue?: number;
 };
 
 export const playSpots: Spot[] = [
@@ -115,10 +115,10 @@ export const events = [
 ];
 
 export const teamPrograms = [
-  { title: "户外拓展", desc: "依托森林与草地，定制专业拓展课程，熔炼团队。" },
-  { title: "铁锅炖大赛 / 烧烤派对", desc: "分组协作，生火做饭，在烟火气中拉近同事距离。" },
-  { title: "麦香林趣 / 农耕体验", desc: "走进麦田，体验丰收，感悟“一分耕耘一分收获”。" },
-  { title: "露营音乐会", desc: "星空、篝火、音乐，打造最难忘的团队之夜。" },
+  { slug: "outdoor", title: "户外拓展", desc: "依托森林与草地，定制专业拓展课程，熔炼团队。", tag: "团建" as const },
+  { slug: "ironpot", title: "铁锅炖大赛 / 烧烤派对", desc: "分组协作，生火做饭，在烟火气中拉近同事距离。", tag: "团建" as const },
+  { slug: "farm", title: "麦香林趣 / 农耕体验", desc: "走进麦田，体验丰收，感悟“一分耕耘一分收获”。", tag: "团建" as const },
+  { slug: "camp-concert", title: "露营音乐会", desc: "星空、篝火、音乐，打造最难忘的团队之夜。", tag: "团建" as const },
 ];
 
 export const history = {

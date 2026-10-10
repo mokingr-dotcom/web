@@ -25,3 +25,7 @@ dining-1…5（用餐空间）、gallery-1…9（图集）、story-gate（园区
 图集：spot-<项目>-1.jpg、spot-<项目>-2.jpg … 按序号依次放入（序号不要断，最多 24 张）
 例：spot-rainbow-slide.jpg、spot-rainbow-slide-1.jpg、spot-rainbow-slide-2.jpg
 房型同理：room-<房型>-1.jpg、room-<房型>-2.jpg …（有 2 张以上时详情页自动出现图集）
+
+## 团建项目图集
+封面：team-<项目>.jpg；图集：team-<项目>-1.jpg、team-<项目>-2.jpg …
+项目标识：outdoor（户外拓展）、ironpot（铁锅炖大赛 / 烧烤派对）、farm（麦香林趣 / 农耕体验）、camp-concert（露营音乐会）
