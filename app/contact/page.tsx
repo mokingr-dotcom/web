@@ -15,7 +15,7 @@ export default function ContactPage() {
           <p><strong>地址</strong>　{site.address}</p>
           <p><strong>服务时间</strong>　{site.hours}</p>
           <h3>交通指引</h3>
-          <p className="muted">自驾：导航搜索“{site.name}”，园区设有免费停车场。公共交通与接送服务请电话咨询。</p>
+          <p className="muted">导航搜索“{site.name}”或“马头村”。停车与公共交通方式待确认。</p>
         </div>
         <div className="map" role="img" aria-label="地图占位">
           地图占位

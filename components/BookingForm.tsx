@@ -36,7 +36,7 @@ export default function BookingForm({ rooms, defaultRoom }: Props) {
     <form className="form" onSubmit={onSubmit}>
       <label>姓名<input name="name" required maxLength={30} /></label>
       <label>手机号<input name="phone" required pattern="1[3-9]\d{9}" title="请输入 11 位手机号" inputMode="numeric" /></label>
-      <label>房型
+      <label>咨询房型
         <select name="room" defaultValue={defaultRoom ?? rooms[0].slug}>
           {rooms.map((r) => <option key={r.slug} value={r.slug}>{r.name}</option>)}
         </select>

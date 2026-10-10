@@ -9,8 +9,10 @@ export default function RoomCard({ room }: { room: Room }) {
       <div className="card-body">
         <h3>{room.name}</h3>
         <p className="muted">{room.summary}</p>
-        <p className="meta">{room.size}㎡ · 宜住 {room.guests} 人 · {room.bed}</p>
-        <p className="price">¥{room.price}<small> 起 / 晚</small></p>
+        <p className="meta">宜住 {room.guests} 人 · {room.bed}</p>
+        <p className="price">
+          {room.price ? <>¥{room.price}<small> 起 / 晚</small></> : <small>价格请咨询</small>}
+        </p>
       </div>
     </Link>
   );

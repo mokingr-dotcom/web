@@ -28,11 +28,11 @@ export default async function RoomDetail({ params }: Props) {
         <p className="tag">{room.type}</p>
         <h1>{room.name}</h1>
         <p className="muted">{room.summary}</p>
-        <p className="meta">{room.size}㎡ · 宜住 {room.guests} 人 · {room.bed}</p>
+        <p className="meta">宜住 {room.guests} 人 · {room.bed}</p>
         <ul className="features">
           {room.features.map((f) => <li key={f}>{f}</li>)}
         </ul>
-        <p className="price big">¥{room.price}<small> 起 / 晚</small></p>
+        <p className="price big">{room.price ? <>¥{room.price}<small> 起 / 晚</small></> : <small>价格请咨询</small>}</p>
         <Link href={`/booking?room=${room.slug}`} className="btn">预订此房型</Link>
       </div>
     </div>

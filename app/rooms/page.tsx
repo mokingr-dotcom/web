@@ -2,18 +2,14 @@ import type { Metadata } from "next";
 import { rooms } from "@/lib/data";
 import RoomCard from "@/components/RoomCard";
 
-export const metadata: Metadata = { title: "客房民宿" };
+export const metadata: Metadata = { title: "住宿" };
 
 export default function RoomsPage() {
-  const hotel = rooms.filter((r) => r.type === "酒店");
-  const bnb = rooms.filter((r) => r.type === "民宿");
   return (
     <div className="container section">
-      <h1>客房与民宿</h1>
-      <h2 className="sub">精品酒店</h2>
-      <div className="grid grid-2">{hotel.map((r) => <RoomCard key={r.slug} room={r} />)}</div>
-      <h2 className="sub">特色民宿</h2>
-      <div className="grid grid-2">{bnb.map((r) => <RoomCard key={r.slug} room={r} />)}</div>
+      <h1>徽派民宿</h1>
+      <p className="muted">房型与价格待确认，以下为示例。</p>
+      <div className="grid grid-3">{rooms.map((r) => <RoomCard key={r.slug} room={r} />)}</div>
     </div>
   );
 }

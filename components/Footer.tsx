@@ -11,16 +11,16 @@ export default function Footer() {
         </div>
         <div>
           <p>电话：{site.phone}</p>
-          <p>邮箱：{site.email}</p>
-          <p>{site.address}</p>
+          <p>地址：{site.address}</p>
         </div>
         <div>
-          <Link href="/rooms">客房民宿</Link>
-          <Link href="/park">园区游玩</Link>
-          <Link href="/booking">在线预订</Link>
+          <Link href="/dining">餐饮</Link>
+          <Link href="/rooms">住宿</Link>
+          <Link href="/play">游玩</Link>
+          <Link href="/shop">田园好物</Link>
         </div>
       </div>
-      <p className="copy">© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+      <p className="copy">© {new Date().getFullYear()} {site.name}</p>
     </footer>
   );
 }
