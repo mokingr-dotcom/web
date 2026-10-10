@@ -9,6 +9,8 @@ export default function ShopPage() {
     <>
     <div className="page-title"><div className="container"><p className="eyebrow">购</p><h1>田园好物</h1><p className="muted">农产品商城与会员套餐正在筹备中，敬请期待。</p></div></div>
     <div className="container section">
+      <h2 className="sub">龅牙薯 IP 文创</h2>
+      <div className="panel"><h3>{shopPreview.ip.name}</h3><p className="muted">{shopPreview.ip.desc}</p></div>
       <h2 className="sub">即将上线</h2>
       <div className="grid grid-4">
         {shopPreview.products.map((p) => <div key={p} className="highlight"><h3>{p}</h3></div>)}

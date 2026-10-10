@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/data";
+import Placeholder from "@/components/Placeholder";
 
 export const metadata: Metadata = { title: "联系我们" };
 
@@ -10,9 +11,11 @@ export default function ContactPage() {
     <div className="container section">
       <div className="grid grid-2">
         <div className="panel">
+          <div className="contact-photo"><Placeholder hue={30} label="千帆集园区大门" slot="story-gate" /></div>
           <p><strong>电话</strong>　{site.phone}</p>
           <p><strong>邮箱</strong>　{site.email}</p>
           <p><strong>微信</strong>　{site.wechat}</p>
+          <p><strong>运营主体</strong>　{site.company}</p>
           <p><strong>地址</strong>　{site.address}</p>
           <p><strong>服务时间</strong>　{site.hours}</p>
           <h3>交通指引</h3>

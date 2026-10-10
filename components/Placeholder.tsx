@@ -1,20 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
 import { useId } from "react";
-
-const EXTS = ["jpg", "jpeg", "png", "webp"];
-
-// 在 public/images/ 下找 <slot>.jpg|jpeg|png|webp，找不到就显示水墨风示意图。
-function findImage(slot?: string) {
-  if (!slot) return null;
-  for (const ext of EXTS) {
-    const file = `${slot}.${ext}`;
-    if (fs.existsSync(path.join(process.cwd(), "public", "images", file))) {
-      return `/images/${file}`;
-    }
-  }
-  return null;
-}
+import { findImage } from "@/lib/images";
 
 export default function Placeholder({
   hue,
