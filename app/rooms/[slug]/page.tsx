@@ -23,7 +23,7 @@ export default async function RoomDetail({ params }: Props) {
 
   return (
     <div className="container section detail">
-      <Placeholder hue={room.hue} label={room.name} className="detail-img" />
+      <Placeholder hue={room.hue} label={room.name} slot={`room-${room.slug}`} className="detail-img" />
       <div>
         <p className="tag">{room.type}</p>
         <h1>{room.name}</h1>

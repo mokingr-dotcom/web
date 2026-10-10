@@ -11,7 +11,7 @@ export default function GalleryPage() {
       <p className="muted">当前为占位图，上线前替换为实拍照片。</p>
       <div className="grid grid-3 gallery">
         {gallery.map((g) => (
-          <Placeholder key={g.id} hue={g.hue} label={g.caption} className="g-item" />
+          <Placeholder key={g.id} hue={g.hue} label={g.caption} slot={`gallery-${g.id + 1}`} className="g-item" />
         ))}
       </div>
     </div>
