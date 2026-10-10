@@ -5,8 +5,9 @@ export const metadata: Metadata = { title: "联系我们" };
 
 export default function ContactPage() {
   return (
+    <>
+    <div className="page-title"><div className="container"><p className="eyebrow">联系</p><h1>联系我们</h1></div></div>
     <div className="container section">
-      <h1>联系我们</h1>
       <div className="grid grid-2">
         <div className="panel">
           <p><strong>电话</strong>　{site.phone}</p>
@@ -23,5 +24,6 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
