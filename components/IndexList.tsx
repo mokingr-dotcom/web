@@ -2,9 +2,9 @@ import type { Spot } from "@/lib/data";
 import Reveal from "./Reveal";
 
 // 文字索引列表：没有照片时比卡通占位图更高级，也方便以后逐项换成图片。
-export default function IndexList({ spots }: { spots: Spot[] }) {
+export default function IndexList({ spots, light = false }: { spots: Spot[]; light?: boolean }) {
   return (
-    <ol className="index-list">
+    <ol className={`index-list${light ? " light" : ""}`}>
       {spots.map((s, i) => (
         <Reveal key={s.slug} delay={Math.min(i, 4) * 60}>
           <li>

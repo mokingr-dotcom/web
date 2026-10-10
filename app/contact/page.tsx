@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "联系我们" };
 export default function ContactPage() {
   return (
     <>
-    <div className="page-title"><div className="container"><p className="eyebrow">联系</p><h1>联系我们</h1></div></div>
+    <div className="page-title"><div className="container"><p className="eyebrow">CONTACT · 联系</p><h1>联系我们</h1></div></div>
     <div className="container section">
       <div className="grid grid-2">
         <div className="panel">

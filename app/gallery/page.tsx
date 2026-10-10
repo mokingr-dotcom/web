@@ -13,7 +13,7 @@ export default function GalleryPage() {
   }));
   return (
     <>
-      <div className="page-title"><div className="container"><p className="eyebrow">影</p><h1>图集</h1><p className="muted">园区实景，点击图片查看大图。</p></div></div>
+      <div className="page-title"><div className="container"><p className="eyebrow">GALLERY · 影</p><h1>图集</h1><p className="muted">园区实景，点击图片查看大图。</p></div></div>
       <div className="container section">
         <Lightbox items={items} />
       </div>

@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "千帆故事" };
 export default function StoryPage() {
   return (
     <>
-      <div className="page-title"><div className="container"><p className="eyebrow">千帆故事</p><h1>{history.title}</h1><p className="muted">{site.slogan}</p></div></div>
+      <div className="page-title"><div className="container"><p className="eyebrow">STORY · 千帆故事</p><h1>{history.title}</h1><p className="muted">{site.slogan}</p></div></div>
       <div className="container section">
         <div className="detail">
           <div>
