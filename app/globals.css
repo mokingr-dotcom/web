@@ -109,14 +109,19 @@ p { margin: 0 0 1em; }
 .section-head.light .more { color: #efe7d6; }
 .section-head.light .more:hover { color: #d9bd8a; }
 .index-list { list-style: none; margin: 0 auto; padding: 0; max-width: 980px; }
-.index-list li { display: grid; grid-template-columns: 56px minmax(220px, 1.2fr) 80px 1.8fr; gap: 20px; align-items: baseline; padding: 28px 0; border-top: 1px solid var(--line); transition: padding .45s; }
+.index-list li { border-top: 1px solid var(--line); }
+.ix-row { display: grid; grid-template-columns: 56px minmax(220px, 1.2fr) 80px 1.8fr; gap: 20px; align-items: baseline; padding: 28px 0; transition: padding .45s; }
+.ix-row.has-go { grid-template-columns: 56px minmax(220px, 1.2fr) 80px 1.8fr 28px; cursor: pointer; }
+.ix-go { color: var(--gold); transition: transform .35s, color .3s; text-align: right; }
+.index-list li:hover .ix-go { transform: translateX(6px); color: var(--seal-on, #d9bd8a); }
 .index-list > div:last-child li, .index-list > li:last-child { border-bottom: 1px solid var(--line); }
-.index-list li:hover { padding-left: 16px; }
+.ix-row:hover { padding-left: 16px; }
 .ix-no { font-family: var(--serif); color: var(--gold); letter-spacing: .1em; }
 .ix-title { margin: 0; font-size: clamp(1.2rem, 2.1vw, 1.6rem); transition: color .3s; }
 .ix-tag { color: var(--muted); font-size: .72rem; letter-spacing: .3em; }
 .ix-desc { margin: 0; color: var(--muted); font-size: .92rem; }
 .index-list.light li { border-color: rgba(239,231,214,.16); }
+.index-list.light .ix-title { color: #f1e9d8; }
 .index-list.light .ix-desc, .index-list.light .ix-tag { color: rgba(239,231,214,.6); }
 .index-list li:hover .ix-title { color: var(--gold); }
 
@@ -276,7 +281,8 @@ p { margin: 0 0 1em; }
   .band-cap { padding-bottom: 56px; }
   .dark-panel { padding: 80px 0; }
   .section-head { margin-bottom: 40px; }
-  .index-list li { grid-template-columns: 40px 1fr; gap: 6px 12px; padding: 22px 0; }
+  .ix-row, .ix-row.has-go { grid-template-columns: 40px 1fr 20px; gap: 6px 12px; padding: 22px 0; }
+  .ix-go { grid-column: 3; grid-row: 1; }
   .ix-tag { grid-column: 2; grid-row: 2; } .ix-desc { grid-column: 2; }
   .tri-3, .tri-2 { grid-template-columns: 1fr; gap: 52px; }
   .tri-3 .tri-img { aspect-ratio: 4 / 3; }
@@ -297,3 +303,32 @@ p { margin: 0 0 1em; }
   .mobile-cta a:first-child { background: var(--gold); color: var(--brown-deep); }
 }
 .ph-img.cover, .ph.cover { height: 100%; }
+
+/* project detail */
+.proj-hero { position: relative; margin-top: 76px; height: clamp(420px, 68vh, 700px); overflow: hidden; color: #f6efe0; background: var(--brown-deep); }
+.proj-hero-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 24px 72px; text-align: center; }
+.proj-hero-cap h1 { letter-spacing: .3em; padding-left: .3em; margin: 0; }
+.proj-body { max-width: 760px; padding-bottom: 60px; }
+.facts-table { margin: 56px 0; border-top: 1px solid var(--line); }
+.facts-table > div { display: grid; grid-template-columns: 140px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.facts-table dt { color: var(--gold); letter-spacing: .25em; font-size: .8rem; }
+.facts-table dd { margin: 0; }
+.proj-gallery h2 { margin-bottom: .2em; }
+.gal-hint { font-size: .8rem; letter-spacing: .25em; margin-bottom: 48px; }
+.notice { max-width: 560px; margin: 36px auto 0; padding: 48px 24px; text-align: center; color: var(--muted); border: 1px dashed var(--line); }
+.proj-gal-wrap { padding-top: 40px; }
+.pager { display: grid; grid-template-columns: 1fr auto 1fr; border-top: 1px solid var(--line); }
+.pager a { display: grid; gap: 4px; padding: 44px 24px; transition: background .3s; }
+.pager a:hover { background: var(--paper-alt); }
+.pager span { font-size: .72rem; letter-spacing: .35em; color: var(--gold); }
+.pager strong { font-family: var(--serif); font-weight: 400; font-size: 1.15rem; letter-spacing: .12em; }
+.pager-next { text-align: right; }
+.pager-all { align-content: center; text-align: center; border-left: 1px solid var(--line); border-right: 1px solid var(--line); padding-inline: 48px !important; }
+@media (max-width: 900px) {
+  .proj-hero { margin-top: 62px; height: 58vh; }
+  .facts-table > div { grid-template-columns: 96px 1fr; }
+  .pager { grid-template-columns: 1fr 1fr; }
+  .pager-all { display: none; }
+  .pager a { padding: 28px 16px; }
+}
+.proj-body { padding-top: 40px; }

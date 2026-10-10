@@ -94,7 +94,7 @@ export default function Home() {
           <Reveal>
             <SectionHead light no="PLAY · 玩" title="玩在千帆集" sub="从孩子的萌宠乐园，到大人的森林与星空。" href="/play" more="全部项目" />
           </Reveal>
-          <IndexList light spots={playSpots.slice(0, 6)} />
+          <IndexList light base="/play" spots={playSpots.slice(0, 6)} />
         </div>
       </section>
 

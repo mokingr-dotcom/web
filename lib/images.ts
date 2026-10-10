@@ -14,3 +14,14 @@ export function findImage(slot?: string) {
   }
   return null;
 }
+
+// 项目图集：<prefix>-1, <prefix>-2 … 依次查找，遇到缺号就停止（最多 24 张）。
+export function findGallery(prefix: string, max = 24) {
+  const out: string[] = [];
+  for (let i = 1; i <= max; i++) {
+    const src = findImage(`${prefix}-${i}`);
+    if (!src) break;
+    out.push(src);
+  }
+  return out;
+}

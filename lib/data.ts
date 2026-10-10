@@ -153,3 +153,13 @@ export const shopPreview = {
     { name: "认养一亩田", desc: "认养一块地，收获季到园体验并带走农产品。" },
   ],
 };
+
+// 适合人群：取自园区介绍资料中各项目后的标注。
+export const spotSuit: Record<string, string> = {
+  "pet-park": "亲子首选",
+  "rainbow-slide": "刺激 / 网红",
+  "forest-camp": "成人 / 挑战",
+  "lure-fishing": "成人 / 挑战",
+  "shared-farm": "田园体验",
+  "open-air-cinema": "浪漫",
+};

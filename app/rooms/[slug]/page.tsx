@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { rooms } from "@/lib/data";
 import Placeholder from "@/components/Placeholder";
+import ProjectGallery from "@/components/ProjectGallery";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -22,6 +23,7 @@ export default async function RoomDetail({ params }: Props) {
   if (!room) notFound();
 
   return (
+    <>
     <div className="container section detail">
       <Placeholder hue={room.hue} label={room.name} slot={`room-${room.slug}`} className="detail-img" />
       <div>
@@ -36,5 +38,9 @@ export default async function RoomDetail({ params }: Props) {
         <Link href={`/booking?room=${room.slug}`} className="btn">预订此房型</Link>
       </div>
     </div>
+    <div className="container section proj-gal-wrap">
+      <ProjectGallery prefix={`room-${room.slug}`} title={room.name} min={2} showEmpty={false} />
+    </div>
+    </>
   );
 }
