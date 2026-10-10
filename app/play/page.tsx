@@ -9,7 +9,7 @@ export default function PlayPage() {
     <>
     <div className="page-title"><div className="container"><p className="eyebrow">玩</p><h1>游玩项目</h1><p className="muted">项目开放时间、票价以园区现场公告为准（待确认）。</p></div></div>
     <div className="container section">
-      <SpotGrid spots={playSpots} />
+      <SpotGrid spots={playSpots} shape="arch" />
       <h2 className="sub" id="events">活动</h2>
       <ul className="activities">
         {events.map((e) => (

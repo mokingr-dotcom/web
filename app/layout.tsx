@@ -16,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <div className="mobile-cta"><a href="/booking">预订咨询</a><a href="/contact">到访路线</a></div>
       </body>
     </html>
   );

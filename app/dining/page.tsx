@@ -15,7 +15,7 @@ export default function DiningPage() {
         <div className="gallery-strip">
           {diningGallery.map((g) => (
             <figure key={g.id}>
-              <Placeholder hue={30 + g.id * 30} label={g.caption} slot={`dining-${g.id}`} className="g-item" />
+              <Placeholder hue={30 + g.id * 30} label={g.caption} slot={`dining-${g.id}`} className="g-item r-leaf" />
               <figcaption>{g.caption}</figcaption>
             </figure>
           ))}
