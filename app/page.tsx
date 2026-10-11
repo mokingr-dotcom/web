@@ -5,6 +5,7 @@ import Reveal from "@/components/Reveal";
 import IndexList from "@/components/IndexList";
 import ParallaxBg from "@/components/ParallaxBg";
 import BandBg from "@/components/BandBg";
+import Showcase, { type Slide } from "@/components/Showcase";
 import Gallery3 from "@/components/Gallery3";
 import { findImage } from "@/lib/images";
 
@@ -15,7 +16,9 @@ function Band({
   desc,
   href,
   cta,
+  tone,
 }: {
+  tone?: "night";
   slot: string;
   eyebrow: string;
   title: string;
@@ -25,7 +28,7 @@ function Band({
 }) {
   const src = findImage(slot);
   return (
-    <section className="band">
+    <section className={`band${tone ? ` band-${tone}` : ""}`}>
       {src ? <BandBg src={src} /> : <div className="band-bg band-empty" />}
       <div className="band-shade" />
       <Reveal className="band-cap">
@@ -38,8 +41,19 @@ function Band({
   );
 }
 
+const STAY_SLIDES = [
+  { slot: "room-huipai-courtyard", eyebrow: "STAY · 住 · 庭院", title: "运河徽派庭院", desc: "马头墙与青砖黛瓦，白墙之间是一个个独立院落。", href: "/rooms/huipai-courtyard", cta: "查看庭院" },
+  { slot: "room-huipai-double", eyebrow: "STAY · 住 · 双床房", title: "徽派双床房", desc: "木色与米白，安静舒适，适合朋友同行。", href: "/rooms/huipai-double", cta: "查看房型" },
+  { slot: "room-family-room", eyebrow: "STAY · 住 · 亲子房", title: "亲子阁楼房", desc: "木质吊顶与小阁楼，孩子的秘密基地。", href: "/rooms/family-room", cta: "查看房型" },
+  { slot: "gallery-9", eyebrow: "STAY · 住 · 客厅", title: "民宿客厅", desc: "木吊顶、暖光与沙发，一家人围坐聊天。", href: "/rooms", cta: "查看房型" },
+];
+
 export default function Home() {
   const heroImg = findImage("hero");
+  const staySlides: Slide[] = STAY_SLIDES.flatMap((s) => {
+    const src = findImage(s.slot);
+    return src ? [{ src, eyebrow: s.eyebrow, title: s.title, desc: s.desc, href: s.href, cta: s.cta }] : [];
+  });
   return (
     <>
       <section className="hero">
@@ -80,14 +94,7 @@ export default function Home() {
         ))}
       </nav>
 
-      <Band
-        slot="band-stay"
-        eyebrow="STAY · 住"
-        title="枕着运河，住进徽派庭院"
-        desc="保留经典马头墙与青砖黛瓦，内部是现代舒适的居住体验。"
-        href="/rooms"
-        cta="查看房型"
-      />
+      <Showcase slides={staySlides} />
 
       <section className="dark-panel">
         <div className="container">
@@ -117,17 +124,15 @@ export default function Home() {
         />
       </section>
 
-      <section className="night">
-        <div className="stars" aria-hidden="true" />
-        <div className="container section night-in">
-          <Reveal>
-            <p className="eyebrow light">NIGHT · 夜</p>
-            <h2>夜里，是另一个千帆集</h2>
-            <p>低光污染、视野开阔，是北京近郊的观星点位；草地上的露天星空巨幕，篝火与音乐。</p>
-            <Link href="/play#events" className="btn-line">夜游与活动</Link>
-          </Reveal>
-        </div>
-      </section>
+      <Band
+        tone="night"
+        slot="spot-open-air-cinema"
+        eyebrow="NIGHT · 夜"
+        title="夜里，是另一个千帆集"
+        desc="草地上的露天星空巨幕，篝火与音乐；低光污染、视野开阔，也是北京近郊的观星点位。"
+        href="/play/open-air-cinema"
+        cta="看露天电影"
+      />
 
       <section className="container section">
         <Reveal><SectionHead no="EVENTS · 活动" title="近期与持续活动" /></Reveal>
