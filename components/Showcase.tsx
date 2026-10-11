@@ -12,7 +12,15 @@ export type Slide = {
 };
 
 // 整屏轮播：自动切换（鼠标悬停时暂停），支持箭头、圆点、键盘左右键、手机左右滑动。
-export default function Showcase({ slides, interval = 6500 }: { slides: Slide[]; interval?: number }) {
+export default function Showcase({
+  slides,
+  interval = 6500,
+  label = "展示",
+}: {
+  slides: Slide[];
+  interval?: number;
+  label?: string;
+}) {
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reduced, setReduced] = useState(false);
@@ -38,7 +46,7 @@ export default function Showcase({ slides, interval = 6500 }: { slides: Slide[];
     <section
       className="showcase"
       aria-roledescription="carousel"
-      aria-label="住宿展示"
+      aria-label={label}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}

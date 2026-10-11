@@ -48,8 +48,21 @@ const STAY_SLIDES = [
   { slot: "gallery-9", eyebrow: "STAY · 住 · 客厅", title: "民宿客厅", desc: "木吊顶、暖光与沙发，一家人围坐聊天。", href: "/rooms", cta: "查看房型" },
 ];
 
+// 菜品轮播：按 dish-<标识>.jpg 放图即可自动出现，没放的不显示。
+const DISH_SLIDES = [
+  { slot: "dish-stone-pot", eyebrow: "DINE · 吃 · 石锅菜", title: "墨脱石锅菜", desc: "石锅慢炖，汤浓味鲜，山珍与时蔬的本味。" },
+  { slot: "dish-iron-pot", eyebrow: "DINE · 吃 · 铁锅炖", title: "运河铁锅炖", desc: "选用新鲜运河活鱼，小火慢炖，汤浓肉嫩。" },
+  { slot: "dish-casserole", eyebrow: "DINE · 吃 · 砂锅", title: "特色砂锅", desc: "砂锅煨煮，热气腾腾的京郊烟火气。" },
+  { slot: "dish-coffee", eyebrow: "DINE · 吃 · 咖啡与轻食", title: "Sharklāka 咖啡与轻食", desc: "咖啡、茶饮与特色轻食，配一个慢下来的下午。" },
+  { slot: "dish-beer", eyebrow: "DINE · 吃 · 微醺", title: "“渡”牌啤酒", desc: "夜晚的微醺时刻，旅人的能量补给站。" },
+];
+
 export default function Home() {
   const heroImg = findImage("hero");
+  const dishSlides: Slide[] = DISH_SLIDES.flatMap((d) => {
+    const src = findImage(d.slot);
+    return src ? [{ src, eyebrow: d.eyebrow, title: d.title, desc: d.desc, href: "/dining", cta: "餐饮详情" }] : [];
+  });
   const staySlides: Slide[] = STAY_SLIDES.flatMap((s) => {
     const src = findImage(s.slot);
     return src ? [{ src, eyebrow: s.eyebrow, title: s.title, desc: s.desc, href: s.href, cta: s.cta }] : [];
@@ -94,7 +107,7 @@ export default function Home() {
         ))}
       </nav>
 
-      <Showcase slides={staySlides} />
+      <Showcase slides={staySlides} label="住宿展示" />
 
       <section className="dark-panel">
         <div className="container">
@@ -105,14 +118,18 @@ export default function Home() {
         </div>
       </section>
 
-      <Band
-        slot="band-dine"
-        eyebrow="DINE · 吃"
-        title="吃在码头"
-        desc="运河铁锅炖、特色砂锅与墨脱石锅菜；Sharklāka 咖啡厅与“渡”牌啤酒。"
-        href="/dining"
-        cta="餐饮详情"
-      />
+      {dishSlides.length > 0 ? (
+        <Showcase slides={dishSlides} label="菜品展示" />
+      ) : (
+        <Band
+          slot="band-dine"
+          eyebrow="DINE · 吃"
+          title="吃在码头"
+          desc="运河铁锅炖、特色砂锅与墨脱石锅菜；Sharklāka 咖啡厅与“渡”牌啤酒。"
+          href="/dining"
+          cta="餐饮详情"
+        />
+      )}
 
       <section className="container section">
         <Gallery3

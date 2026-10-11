@@ -29,3 +29,11 @@ dining-1…5（用餐空间）、gallery-1…9（图集）、story-gate（园区
 ## 团建项目图集
 封面：team-<项目>.jpg；图集：team-<项目>-1.jpg、team-<项目>-2.jpg …
 项目标识：outdoor（户外拓展）、ironpot（铁锅炖大赛 / 烧烤派对）、farm（麦香林趣 / 农耕体验）、camp-concert（露营音乐会）
+
+## 首页“吃”菜品轮播（按菜品放图，放几张就轮播几张）
+dish-stone-pot.jpg（墨脱石锅菜，已有）、dish-iron-pot.jpg（运河铁锅炖）、dish-casserole.jpg（特色砂锅）、
+dish-coffee.jpg（咖啡与轻食）、dish-beer.jpg（“渡”牌啤酒）
+建议：横图、菜品占画面主体、背景干净，宽 2000px 左右。
+
+## 首页“住”轮播
+使用 hero 以外的房型图：room-huipai-courtyard、room-huipai-double、room-family-room、gallery-9。
