@@ -11,6 +11,7 @@ const nav = [
   { href: "/team", label: "团建活动" },
   { href: "/story", label: "千帆故事" },
   { href: "/shop", label: "田园好物" },
+  { href: "/aigc-library", label: "AIGC 资料库" },
   { href: "/contact", label: "联系" },
 ];
 
